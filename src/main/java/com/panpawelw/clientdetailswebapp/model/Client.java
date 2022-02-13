@@ -1,6 +1,7 @@
 package com.panpawelw.clientdetailswebapp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
@@ -23,7 +24,11 @@ public class Client {
   private String password;
 
   @NotBlank
-  private String firstname;
+  @Email
+  private String email;
+
+  @NotBlank
+  private String forename;
 
   @NotBlank
   private String surname;
@@ -33,10 +38,11 @@ public class Client {
 
   public Client() {}
 
-  public Client(String username, String password, String firstname, String surname, List<Address> addresses) {
+  public Client(String username, String password, String email,
+                String forename, String surname, List<Address> addresses) {
     this.username = username;
     this.password = password;
-    this.firstname = firstname;
+    this.forename = forename;
     this.surname = surname;
     this.addresses = addresses;
   }
@@ -65,12 +71,20 @@ public class Client {
     this.password = password;
   }
 
-  public String getFirstname() {
-    return firstname;
+  public String getEmail() {
+    return email;
   }
 
-  public void setFirstname(String firstname) {
-    this.firstname = firstname;
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getForename() {
+    return forename;
+  }
+
+  public void setForename(String firstname) {
+    this.forename = firstname;
   }
 
   public String getSurname() {
