@@ -33,6 +33,7 @@ public class Address {
   @NotBlank
   private String country;
 
+  @JsonIgnore
   @JoinColumn
   @ManyToOne
   private Client client;
