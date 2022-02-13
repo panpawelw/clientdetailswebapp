@@ -1,5 +1,7 @@
 package com.panpawelw.clientdetailswebapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -23,6 +25,9 @@ public class Address {
   private String flatNumber;
 
   @NotBlank
+  private String postcode;
+
+  @NotBlank
   private String city;
 
   @NotBlank
@@ -35,10 +40,12 @@ public class Address {
   public Address() {
   }
 
-  public Address(String street, String houseNumber, String flatNumber, String city, String country, Client client) {
+  public Address(String street, String houseNumber, String flatNumber, String postcode,
+                 String city, String country, Client client) {
     this.street = street;
     this.houseNumber = houseNumber;
     this.flatNumber = flatNumber;
+    this.postcode = postcode;
     this.city = city;
     this.country = country;
     this.client = client;
@@ -74,6 +81,14 @@ public class Address {
 
   public void setFlatNumber(String flatNumber) {
     this.flatNumber = flatNumber;
+  }
+
+  public String getPostcode() {
+    return postcode;
+  }
+
+  public void setPostcode(String postcode) {
+    this.postcode = postcode;
   }
 
   public String getCity() {
